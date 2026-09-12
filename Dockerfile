@@ -9,6 +9,4 @@ RUN apt-get update \
     && curl -fsSL https://deno.land/install.sh | sh \
     && chmod +x /usr/local/bin/deno
 
-COPY --chown=appuser:appuser app/services/download_manager.py /app/app/services/download_manager.py
-
 USER appuser
