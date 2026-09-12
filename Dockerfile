@@ -10,6 +10,5 @@ RUN apt-get update \
     && chmod +x /usr/local/bin/deno
 
 COPY --chown=appuser:appuser app/services/download_manager.py /app/app/services/download_manager.py
-COPY --chown=appuser:appuser app/services/youtube_service.py /app/app/services/youtube_service.py
 
 USER appuser
