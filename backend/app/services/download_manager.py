@@ -714,6 +714,9 @@ class DownloadManager:
             "progress_hooks": [progress_hook],
             "quiet": True,
             "no_warnings": True,
+            "cookiefile": "/run/secrets/youtube-cookies.txt",
+            "js_runtimes": {"deno": {}},
+            "remote_components": {"ejs:github"},
         }
         apply_proxy(ydl_opts)
 
