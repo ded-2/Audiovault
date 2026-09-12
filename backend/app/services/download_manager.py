@@ -771,7 +771,22 @@ class DownloadManager:
         value = instruction.get("value")
 
         if resp_type == "yt_search":
-            return f"ytsearch1:{value}"
+            try:
+                from app.services.youtube_service import YouTubeService
+
+                youtube_service = YouTubeService()
+                results = await asyncio.to_thread(youtube_service.search, value, 1, "song")
+
+                if results:
+                    video_id = results[0].get("id")
+                    if video_id:
+                        return f"https://www.youtube.com/watch?v={video_id}"
+
+                logger.warning(f"No YouTube Music result found for fallback query: {value}")
+            except Exception as e:
+                logger.warning(f"YouTube Music fallback search failed for {value}: {e}")
+
+            return ""
         if resp_type == "sc_search":
             return f"scsearch1:{value}"
         if resp_type == "direct_youtube":
