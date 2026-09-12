@@ -9,6 +9,7 @@ services:
     volumes:
       - audiovault-downloads:/downloads
       - audiovault-cache:/cache
+      - /home/ubuntu/www.youtube.com_cookies.txt:/run/secrets/youtube-cookies.txt:ro
       # No code mounts in production
     ports:
       - "8001:8000"
