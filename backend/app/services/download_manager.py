@@ -714,7 +714,7 @@ class DownloadManager:
             "progress_hooks": [progress_hook],
             "quiet": True,
             "no_warnings": True,
-            "cookiefile": "/run/secrets/youtube-cookies.txt",
+            "cookiefile": "/tmp/youtube-cookies.txt",
             "js_runtimes": {"deno": {}},
             "remote_components": {"ejs:github"},
         }
